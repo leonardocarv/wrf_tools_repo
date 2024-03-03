@@ -1,0 +1,61 @@
+Input file to set up WRF-ARW
+Written by Leonardo Carvalho
+
+This file describes the domains for the WRF run. Users must specify the domains as follows:
+
+		   		    << SYSTEM PATHS >>
+					
+System path for WRF, WPS and geog data
+
+mpich_noshared_dir  : /opt/mpich2-3.0.4-shared/bin                : bin path to the mpich with no-shared libs 
+wrf_root_dir        : /home/geociencias/Models/WRF/WRF_Model      : path where WRF is installed
+wps_root_dir        : /home/geociencias/Models/WRF/WPS            : path where WPS is installed
+geog_root_path      : /home/geociencias/Models/WRF/geog/WPS_GEOG  : path to the geog data
+
+				<< SPATIAL DOMAIN INPUT>>
+				
+expt        : Mossoro              : experiment name (keep it as simple as possible, use up to 15 caracteres)
+data_source : GFS_PROD	           : data source of boundary and initial conditions (can be FNL, GFS_PROD or GFS)
+max_domain  : 4		               : number of domains of the WRF run (sum of father and nested domains, up to 5)
+ 
+d01     : first domain (father domain)
+d01_lat : -8.550       :  -1.550   : south and north latitude corners
+d01_lon : -41.400      : -33.400   : west and east longitude corners
+dx      : 12000          : horizontal resolution in the longitude direction (m)
+dy      : 12000          : horizontal resolution in the latitude direction  (m)
+
+!The user can set up to 5 domains: the nested domains will have 1/3 of the
+previous domain resolution!
+
+Remind: always keep your nested domains far from the boundaries to avoid 
+boundary conditions errors
+
+			! PROVIDE NESTED DOMAINS INFORMATIONS BELOW !
+
+d02     : first nested domain
+d02_lat :  -6.759852   : -3.151325  : south and north latitude corners
+d02_lon : -38.9680454   : -35.31713  : west and east longitude corners
+
+d03     : second nested domain
+d03_lat :  -5.656848  :  -4.750052    : south and north latitude corners
+d03_lon : -37.708596  : -36.908224    : west and east longitude corners
+
+d04     : third nested domain
+d04_lat :  -5.354345  :  -5.055479   : south and north latitude corners
+d04_lon : -37.475242  : -37.161354   : west and east longitude corners
+
+d04     : third nested domain
+d04_lat : -34   : -8  : south and north latitude corners
+d04_lon : -60   : -25 : west and east longitude corners
+
+
+			  	<<TIME DOMAIN INPUT>>
+
+Here, the user supplies information regarding the simulation time period.
+It is possible to define whether the run will be in forecast or hindcast mode.
+In hindcast mode, the user must inform the simulation period.
+Reminder: keep in mind the spin-up time.
+
+wrf_run_mode : hindcast   : wrf run mode (hindcast or forecast)
+idate	     : 2023052800 : initial date of simulation in the format yyyymmddhh
+fdate	     : 2023060100 : final date of simulation in the format yyyymmddhh
