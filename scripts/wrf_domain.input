@@ -14,7 +14,7 @@ geog_root_path      : /home/geociencias/Models/WRF/geog/WPS_GEOG  : path to the 
 
 				<< SPATIAL DOMAIN INPUT>>
 				
-expt        : Mossoro              : experiment name (keep it as simple as possible, use up to 15 caracteres)
+expt        : Mossoro              : experiment name (keep it as simple as possible, use up to 15 caracters)
 data_source : GFS_PROD	           : data source of boundary and initial conditions (can be FNL, GFS_PROD or GFS)
 max_domain  : 4		               : number of domains of the WRF run (sum of father and nested domains, up to 5)
  
