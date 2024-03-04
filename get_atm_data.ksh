@@ -51,7 +51,7 @@ date --date="$fdate $fhour:00:00" +%s | read j
 # Download ucar coockies
 
 email=youremail@email.com
-pswd=YourPassword
+psswd=YourPassword
 
 wget -V |grep 'GNU Wget ' | cut -d ' ' -f3 | read v
 
@@ -62,7 +62,7 @@ opt=wget
 fi
 
 opt1='-O /dev/null --save-cookies auth.rda_ucar_edu --post-data'
-opt2="email=${email}&passwd=${pswd}&action=login"
+opt2="email=${email}&passwd=${psswd}&action=login"
 
 $opt $opt1="$opt2" https://rda.ucar.edu/cgi-bin/login
 opt1="-N --load-cookies auth.rda_ucar_edu"
